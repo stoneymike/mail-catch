@@ -15,7 +15,11 @@ const port = 3000 || process.env.PORT
 app.get('/', async (req, res) => {
   console.log(req.ipInfo)
 
-  console.log(lookup(req.ipInfo.ip))
+  const ip = req.ipInfo.split(", ")
+
+  ip.forEach(ip => {
+    console.log(lookup(ip))
+  })
 
   res.send("ERROR")
 })
